@@ -49,7 +49,7 @@ for ip in inputs:
     theta = np.angle(result)
     phi = np.arccos(np.absolute(result))
     
-    # Convert theta from (-pi, pi] to (-2pi, pi]
+    # Convert theta from (-pi, pi] to [0, 2pi)
     if theta < 0:
         theta = 2*np.pi + theta
     
@@ -59,6 +59,7 @@ for ip in inputs:
     if diff < 0:
         diff =  2*np.pi + diff
     
+    # --- Code to find the phases as multiples of a certain fraction of pi ---
     # bits = 4
     # sum = sum / (2 * np.pi / (2**bits))
     # diff = diff / (2 * np.pi / (2**bits))
